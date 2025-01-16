@@ -1,7 +1,7 @@
 <div align="center">
 
 # ComfyUI
-
+</div>
 ### [Installing ComfyUI](#installing)
 
 ## Shortcuts
@@ -219,3 +219,5 @@ See also: [https://www.comfy.org/](https://www.comfy.org/)
 ## Frontend Development
    
    Coming soon
+
+Create By HuyCuteHiHii
