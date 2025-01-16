@@ -1,8 +1,8 @@
 <div align="center">
 
-# ComfyUI
+# PortableUI
 </div>
-### [Installing ComfyUI](#installing)
+### [Installing PortableUI]
 
 ## Shortcuts
 
@@ -46,21 +46,19 @@
 
 ## Windows
 
-There is a portable standalone build for Windows that should work for running on Nvidia GPUs or for running on your CPU only on the [releases page](https://github.com/comfyanonymous/ComfyUI/releases).
+### 
 
-### [Direct link to download](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_nvidia.7z)
-
-Simply download, extract with [7-Zip](https://7-zip.org) and run. Make sure you put your Stable Diffusion checkpoints/models (the huge ckpt/safetensors files) in: ComfyUI\models\checkpoints
+Simply download, extract with [7-Zip](https://7-zip.org) and run. Make sure you put your Stable Diffusion checkpoints/models (the huge ckpt/safetensors files) in: PortableUI\models\checkpoints
 
 If you have trouble extracting it, right click the file -> properties -> unblock
 
-#### How do I share models between another UI and ComfyUI?
+#### How do I share models between another UI and PortableUI?
 
-See the [Config file](extra_model_paths.yaml.example) to set the search paths for models. In the standalone windows build you can find this file in the ComfyUI directory. Rename this file to extra_model_paths.yaml and edit it with your favorite text editor.
+See the [Config file](extra_model_paths.yaml.example) to set the search paths for models. In the standalone windows build you can find this file in the PortableUI directory. Rename this file to extra_model_paths.yaml and edit it with your favorite text editor.
 
 ## Jupyter Notebook
 
-To run it on services like paperspace, kaggle or colab you can use my [Jupyter Notebook](notebooks/comfyui_colab.ipynb)
+To run it on services like paperspace, kaggle or colab you can use my [Jupyter Notebook](notebooks/PortableUI_colab.ipynb)
 
 ## Manual Install (Windows, Linux)
 
@@ -90,7 +88,7 @@ This is the command to install the nightly with ROCm 6.2 which might have some p
 
 ```pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/xpu```
 
-2. Launch ComfyUI by running `python main.py`
+2. Launch PortableUI by running `python main.py`
 
 
 (Option 2) Alternatively, Intel GPUs supported by Intel Extension for PyTorch (IPEX) can leverage IPEX for improved performance.
@@ -124,28 +122,28 @@ And install it again with the command above.
 
 ### Dependencies
 
-Install the dependencies by opening your terminal inside the ComfyUI folder and:
+Install the dependencies by opening your terminal inside the PortableUI folder and:
 
 ```pip install -r requirements.txt```
 
-After this you should have everything installed and can proceed to running ComfyUI.
+After this you should have everything installed and can proceed to running PortableUI.
 
 ### Others:
 
 #### Apple Mac silicon
 
-You can install ComfyUI in Apple Mac silicon (M1 or M2) with any recent macOS version.
+You can install PortableUI in Apple Mac silicon (M1 or M2) with any recent macOS version.
 
 1. Install pytorch nightly. For instructions, read the [Accelerated PyTorch training on Mac](https://developer.apple.com/metal/pytorch/) Apple Developer guide (make sure to install the latest pytorch nightly).
-1. Follow the [ComfyUI manual installation](#manual-install-windows-linux) instructions for Windows and Linux.
-1. Install the ComfyUI [dependencies](#dependencies). If you have another Stable Diffusion UI [you might be able to reuse the dependencies](#i-already-have-another-ui-for-stable-diffusion-installed-do-i-really-have-to-install-all-of-these-dependencies).
-1. Launch ComfyUI by running `python main.py`
+1. Follow the [PortableUI manual installation](#manual-install-windows-linux) instructions for Windows and Linux.
+1. Install the PortableUI [dependencies](#dependencies). If you have another Stable Diffusion UI [you might be able to reuse the dependencies](#i-already-have-another-ui-for-stable-diffusion-installed-do-i-really-have-to-install-all-of-these-dependencies).
+1. Launch PortableUI by running `python main.py`
 
-> **Note**: Remember to add your models, VAE, LoRAs etc. to the corresponding Comfy folders, as discussed in [ComfyUI manual installation](#manual-install-windows-linux).
+> **Note**: Remember to add your models, VAE, LoRAs etc. to the corresponding Comfy folders, as discussed in [PortableUI manual installation](#manual-install-windows-linux).
 
 #### DirectML (AMD Cards on Windows)
 
-```pip install torch-directml``` Then you can launch ComfyUI with: ```python main.py --directml```
+```pip install torch-directml``` Then you can launch PortableUI with: ```python main.py --directml```
 
 #### Ascend NPUs
 
@@ -154,7 +152,7 @@ For models compatible with Ascend Extension for PyTorch (torch_npu). To get star
 1. Begin by installing the recommended or newer kernel version for Linux as specified in the Installation page of torch-npu, if necessary.
 2. Proceed with the installation of Ascend Basekit, which includes the driver, firmware, and CANN, following the instructions provided for your specific platform.
 3. Next, install the necessary packages for torch-npu by adhering to the platform-specific instructions on the [Installation](https://ascend.github.io/docs/sources/pytorch/install.html#pytorch) page.
-4. Finally, adhere to the [ComfyUI manual installation](#manual-install-windows-linux) guide for Linux. Once all components are installed, you can run ComfyUI as described earlier.
+4. Finally, adhere to the [PortableUI manual installation](#manual-install-windows-linux) guide for Linux. Once all components are installed, you can run PortableUI as described earlier.
 
 
 # Running
@@ -171,7 +169,7 @@ For AMD 7600 and maybe other RDNA3 cards: ```HSA_OVERRIDE_GFX_VERSION=11.0.0 pyt
 
 ### AMD ROCm Tips
 
-You can enable experimental memory efficient attention on pytorch 2.5 in ComfyUI on RDNA3 and potentially other AMD GPUs using this command:
+You can enable experimental memory efficient attention on pytorch 2.5 in PortableUI on RDNA3 and potentially other AMD GPUs using this command:
 
 ```TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1 python main.py --use-pytorch-cross-attention```
 
@@ -200,7 +198,7 @@ To use a textual inversion concepts/embeddings in a text prompt put them in the 
 
 Use ```--preview-method auto``` to enable previews.
 
-The default installation includes a fast latent preview method that's low-resolution. To enable higher-quality previews with [TAESD](https://github.com/madebyollin/taesd), download the [taesd_decoder.pth, taesdxl_decoder.pth, taesd3_decoder.pth and taef1_decoder.pth](https://github.com/madebyollin/taesd/) and place them in the `models/vae_approx` folder. Once they're installed, restart ComfyUI and launch it with `--preview-method taesd` to enable high-quality previews.
+The default installation includes a fast latent preview method that's low-resolution. To enable higher-quality previews with [TAESD](https://github.com/madebyollin/taesd), download the [taesd_decoder.pth, taesdxl_decoder.pth, taesd3_decoder.pth and taef1_decoder.pth](https://github.com/madebyollin/taesd/) and place them in the `models/vae_approx` folder. Once they're installed, restart PortableUI and launch it with `--preview-method taesd` to enable high-quality previews.
 
 ## How to use TLS/SSL?
 Generate a self-signed certificate (not appropriate for shared/production use) and key by running the command: `openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/C=XX/ST=StateName/L=CityName/O=CompanyName/OU=CompanySectionName/CN=CommonNameOrHostname"`
@@ -212,7 +210,7 @@ Use `--tls-keyfile key.pem --tls-certfile cert.pem` to enable TLS/SSL, the app w
 
 ## Support and dev channel
 
-[Matrix space: #comfyui_space:matrix.org](https://app.element.io/#/room/%23comfyui_space%3Amatrix.org) (it's like discord but open source).
+[Matrix space: #PortableUI_space:matrix.org](https://app.element.io/#/room/%23PortableUI_space%3Amatrix.org) (it's like discord but open source).
 
 See also: [https://www.comfy.org/](https://www.comfy.org/)
 
